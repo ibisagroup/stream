@@ -10,7 +10,7 @@ class DatabaseManager:
     @classmethod
     def get_engine(cls):
         if cls._engine is None:
-            cls._engine = create_engine('sqlite:///stream.sqlite3')
+            cls._engine = create_engine('postgresql+psycopg2://postgres:0mn1c0ns4@postgres:5432/stream')
         return cls._engine
 
     @classmethod
