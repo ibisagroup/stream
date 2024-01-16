@@ -1,4 +1,5 @@
 from models.event_interface import EventInterface
+from database import DatabaseManager
 
 from sqlalchemy import Column, String
 
@@ -32,3 +33,6 @@ class Threshold(EventInterface):
         else:
             if not self.is_init:
                 self.is_init = True
+
+
+EventInterface.metadata.create_all(DatabaseManager.get_engine())

@@ -1,4 +1,5 @@
 from models.event_interface import EventInterface
+from database import DatabaseManager
 
 
 class DataEvent(EventInterface):
@@ -13,3 +14,6 @@ class DataEvent(EventInterface):
         else:
             if int(self.current_data.timestamp) - int(self.last_data.timestamp) > int(self.limit_) and not self.is_init: 
                 self.is_init = True
+
+
+EventInterface.metadata.create_all(DatabaseManager.get_engine())

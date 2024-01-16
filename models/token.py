@@ -1,6 +1,8 @@
 from database import Base
 from sqlalchemy import Integer, String, Boolean, Column
 
+from database import DatabaseManager
+
 
 class Token(Base):
     __tablename__ = 'TOKEN'
@@ -18,3 +20,6 @@ class Token(Base):
 
     def __repr__(self) -> str:
         return f"{self.id} {self.token} {self.is_active}"
+
+
+Base.metadata.create_all(DatabaseManager.get_engine())

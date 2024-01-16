@@ -1,6 +1,7 @@
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.automap import automap_base
 
 class DatabaseManager:
     _engine = None
@@ -19,10 +20,9 @@ class DatabaseManager:
             cls._session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
         return cls._session
 
+engine = DatabaseManager.get_engine()
+
 Base = declarative_base()
 Base.query = DatabaseManager.get_session().query_property()
-
-metadata = MetaData()
-metadata.create_all(DatabaseManager.get_engine())
 
 shared_session = DatabaseManager.get_session()
