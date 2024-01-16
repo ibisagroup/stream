@@ -12,7 +12,8 @@ from sqlalchemy.orm import mapped_column, Mapped
 def get_session(token) -> Session:
     """Make this session, set header -> requests.Session"""
     assert token is not None, 'A token was expected'
-    headers = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token }
+    print(token)
+    headers = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + str(token) }
     session = Session()
     session.headers.update(headers)
     session.verify = True
