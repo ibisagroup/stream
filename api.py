@@ -11,7 +11,7 @@ import json
 
 db_session = shared_session
 
-broker_address = "127.0.0.1"
+broker_address = "mosquitto"
 port = 1883
 topic = "ibisa/stream" 
 
@@ -181,4 +181,5 @@ def token():
 
 
 if __name__ == "__main__":
+    print('RUN API...')
     app.run()

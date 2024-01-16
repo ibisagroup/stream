@@ -15,4 +15,9 @@ RUN ls
 RUN ls /home
 # RUN ls /code
 
-CMD ["python3", "-u", "data.py"]
+# CMD ["python3", "-u", "data.py"]
+# CMD ["python3", "-u", "data.py"]
+
+# CMD ["sh", "-c", "python3 data.py && python3 api.py"]
+
+CMD ["/bin/bash", "run_both_scripts.sh"]
