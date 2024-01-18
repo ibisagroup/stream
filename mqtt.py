@@ -4,9 +4,9 @@ import paho.mqtt.client as mqtt
 import time
 
 # Configura los detalles del servidor MQTT
-broker_address = "127.0.0.1"  # Cambia esto al servidor MQTT que desees usar
+broker_address = "127.0.0.1" 
 port = 1883
-topic = "devteam/888888/stream"  # Cambia esto al tópico que desees usar
+topic = "devteam/888888/stream"
 
 # Callback que se ejecuta cuando se conecta al servidor MQTT
 def on_connect(client, userdata, flags, rc):
@@ -16,7 +16,7 @@ def on_connect(client, userdata, flags, rc):
         print("Error de conexión al servidor MQTT, código:", rc)
 
 # Inicializa el cliente MQTT
-client = mqtt.Client()  # Cambia "mi_cliente" al nombre de tu cliente
+client = mqtt.Client()
 client.on_connect = on_connect
 
 # Conéctate al servidor MQTT
@@ -33,7 +33,7 @@ while True:
     print(f"Señal aleatoria publicada en el tópico '{topic}': {signal}")
 
     # Espera un intervalo de tiempo antes de publicar la siguiente señal (en segundos)
-    time.sleep(5)  # Cambia el intervalo según tus necesidades
+    time.sleep(5)
 
 # Desconéctate del servidor MQTT
 client.disconnect()
