@@ -14,7 +14,7 @@ db_session = shared_session
 broker_address = "mosquitto"
 port = 1883
 topic = "devteam/888888/stream"
-topic_event = "ibisa/thresholds"
+topic_event = "ibisa/stream"
 
 # Threshold: deja de contar por un rango de tiempo
 thresholds: list[Threshold] = []
@@ -57,7 +57,7 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, message):
     payload = message.payload.decode()
-    if message.topic == topic_event:
+    if message.topic == topic_event and payload == "threshold":
         load_thresholds()
     if message.topic == topic:
         future = executor.submit(detect_event, payload)

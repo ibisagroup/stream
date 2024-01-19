@@ -13,7 +13,7 @@ db_session = shared_session
 broker_address = "mosquitto"
 port = 1883
 topic = "devteam/888888/stream"
-topic_event = "ibisa/stoppages"
+topic_event = "ibisa/stream"
 
 # Stoppage: deja de contar por un rango de tiempo
 stoppages: list[Stoppage] = []
