@@ -44,6 +44,9 @@ class EventInterface(Base):
         self.last_data: Data = None
         self.current_data: Data = None
 
+        if kwargs['is_active'] is not None:
+            self.is_active: bool = kwargs['is_active']
+
     def __str__(self) -> str:
         return f"{self.id} {self.name} {self.is_init}"
 
