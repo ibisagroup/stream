@@ -10,7 +10,7 @@ from models.stoppage import Stoppage
 from utilities.constanst import HOURS
 
 db_session = shared_session
-broker_address = "127.0.0.1"
+broker_address = "mosquitto"
 port = 1883
 topic = "devteam/888888/stream"
 topic_event = "ibisa/stoppages"

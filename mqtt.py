@@ -4,7 +4,7 @@ import paho.mqtt.client as mqtt
 import time
 
 # Configura los detalles del servidor MQTT
-broker_address = "127.0.0.1" 
+broker_address = "mosquitto" 
 port = 1883
 topic = "devteam/888888/stream"
 
