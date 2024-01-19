@@ -44,7 +44,9 @@ class EventInterface(Base):
         self.last_data: Data = None
         self.current_data: Data = None
 
-        if kwargs['is_active'] is not None:
+        print(kwargs.get('is_active'))
+
+        if kwargs.get('is_active') is not None:
             self.is_active: bool = kwargs['is_active']
 
     def __str__(self) -> str:
